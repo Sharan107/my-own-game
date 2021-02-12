@@ -30,6 +30,7 @@ function draw() {
 
 for(var i=0; i<=width; i++){
   block= new Block(random(0,1200),(0,600),30,40);
+  block.display
 }
 
  textSize(20);
