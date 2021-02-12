@@ -7,6 +7,7 @@ const Constraint=Matter.Constraint;
 var gameState="onSling";
 var score=0;
 
+
 function setup() {
 createCanvas(1200,600);
 
@@ -25,16 +26,15 @@ function draw() {
 
   ground.display();
   striker.display();
-  rope.display();
+  rope.display();  
 
-  if(frameCount%100==0){
-    block= new Block(random(0,1200),random(0,300),30,40);
-    block.display();
-  }
+for(var i=0; i<=width; i++){
+  block= new Block(random(0,1200),(0,600),30,40);
+}
 
-  console.log(frameCount);
- 
- detectCollision(striker,block);
+ textSize(20);
+ fill("white");
+ text("score: "+score,100,50);
 }
 
 function mouseDragged(){
