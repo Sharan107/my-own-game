@@ -15,9 +15,9 @@ createCanvas(1200,600);
 
   ground= new Ground(600,550,1200,10);
  
-  basketBase= new Ground(mouseX,550,200,10);
-  basketWall= new Ground(basketBase.x-100,550,10,150);
-  basketWall2=new Ground(basketBase.x+100,550,10,150);
+  basketBase= new Basket(mouseX,550,200,10);
+  basketWall= new Basket(basketBase.x-100,550,10,150);
+  basketWall2=new Basket(basketBase.x+100,550,10,150);
 
   Engine.run(engine);
 }
@@ -31,7 +31,7 @@ function draw() {
 if(frameCount%80==0){
   count=count++;
   frameCount=count;
-  block= new Block(random(0,1200),(0,300),30,40);
+  block= new Block(random(0,1200),random(0,300),30,40);
   block.display(); 
   console.log(count);
 }
