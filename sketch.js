@@ -15,9 +15,9 @@ createCanvas(1200,600);
 
   ground= new Ground(600,550,1200,10);
  
-  basketBase= new Basket(mouseX,550,200,10);
-  basketWall= new Basket(basketBase.x-100,550,10,150);
-  basketWall2=new Basket(basketBase.x+100,550,10,150);
+  basketBase= new Basket(200,400,200,10);
+  basketWall= new Basket(basketBase.x-100,basketBase.y,10,150);
+  basketWall2=new Basket(basketBase.x+100,basketBase.y,10,150);
 
   Engine.run(engine);
 }
@@ -27,18 +27,24 @@ function draw() {
 
   ground.display();
   
+  count=count+1;
 
 if(frameCount%80==0){
-  count=count++;
   frameCount=count;
   block= new Block(random(0,1200),random(0,300),30,40);
   block.display(); 
   console.log(count);
+
+  if(block.y>basketBase.y){
+    score=score+1;
+  }
 }
 
 basketBase.display();
 basketWall.display();
 basketWall2.display();
+
+Matter.Body.setPosition(basketBase.body,{x:mouseX,y:mouseY}) 
 
  textSize(20);
  fill("white");
