@@ -9,7 +9,7 @@ this.width=width;
 this.height=height;
 World.add(world,this.body);
 
-console.log(this.body.speed);
+//console.log(this.body.speed);
 }
 
 display(){
