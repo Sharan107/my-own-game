@@ -30,8 +30,6 @@ function draw() {
   background("white")
   Engine.update(engine);
   ground.display();
-  
-getTime();
 
 basketBase.display();
 basketBase2.display();
@@ -48,7 +46,8 @@ if(ball.x>=basketWall2.x&&ball.y>=basketWall2.y){
   score=score+10;
 }
 
-
+getTime();
+  
  textSize(20);
  fill("white");
  stroke("darkBlue");
