@@ -39,13 +39,14 @@ ellipse(ball.position.x,ball.position.y,30,30);
 slingshot.display();
 //Matter.Body.setPosition(basketBase.body,{x:mouseX,y:mouseY}) 
 
-if(ball.x>=basketWall.x && ball.y>=basketWall.y){
+var hit=0;
+if(ball.position.x>=900 && ball.position.x<=1100 && ball.position.y>=450)
+{ hit=1;
+  Matter.Body.setPosition(ball,{x:350,y:350})
+ slingshot.rope.bodyA=ball; }
+  if(hit==1){
   score=score+10;
-}
-if(ball.x>=basketWall2.x&&ball.y>=basketWall2.y){
-  score=score+10;
-}
-
+  hit=0; }
 getTime();
   
  textSize(20);
@@ -65,15 +66,15 @@ function mouseReleased(){
 
 function keyPressed(){
   if(keyCode===32){
-    Matter.body.setPosition(ball.body,{x:200,y:300});
-    slingshot.attach(ball.body,{x:350,y:350});
+    Matter.Body.setPosition(ball,{x:350,y:350})
+    slingshot.rope.bodyA=ball;
   }
 }
 
 async function getTime(){
   var response=await fetch("https://worldtimeapi.org/api/timezone/Asia/Kolkata")
   var responseJSON=await response.json();
-  console.log(responseJSON)
+//  console.log(responseJSON)
 
   var datetime = responseJSON.datetime
   var hour = datetime.slice(11,13)
